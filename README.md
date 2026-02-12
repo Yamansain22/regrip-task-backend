@@ -222,6 +222,7 @@ Example:
 
 ```
 ![Swagger Screenshot](screenshots/swagger.png)
+
 ```
 
 ---
