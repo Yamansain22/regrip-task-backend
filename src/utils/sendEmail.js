@@ -1,16 +1,19 @@
 const nodemailer = require('nodemailer');
 
 const sendEmail = async (to, otp) => {
+
+  // In production, skip SMTP due to cloud restrictions
+  if (process.env.NODE_ENV === 'production') {
+    return; // silently succeed
+  }
+
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,               
-    secure: false,           
+    port: 587,
+    secure: false,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
-    },
-    tls: {
-      rejectUnauthorized: false
     }
   });
 
