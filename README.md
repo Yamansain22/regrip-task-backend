@@ -221,7 +221,7 @@ Swagger UI available at:
 Example:
 
 ```
-![Swagger Screenshot](./screenshots/swagger.png)
+![Swagger Screenshot](screenshots/swagger.png)
 ```
 
 ---
