@@ -212,16 +212,9 @@ Swagger UI available at:
 /api-docs
 ```
 
----
-
 ## 📷 Swagger Screenshot
 
-(Add screenshot here)
-
-Example:
-
-```
-![Swagger Screenshot](screenshots/swagger.jpg)
+<img src="screenshots/swagger.jpg" width="800"/>
 
 
 ```
