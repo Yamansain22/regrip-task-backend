@@ -226,17 +226,6 @@ Example:
 
 ---
 
-# 📷 Project Structure Screenshot
-
-(Add folder structure screenshot here)
-
-Example:
-
-```
-![Project Structure](./screenshots/structure.png)
-```
-
----
 
 # 🚀 Deployment
 
