@@ -221,7 +221,7 @@ Swagger UI available at:
 Example:
 
 ```
-![Swagger Screenshot](screenshots/swagger.png)
+<img src="screenshots/swagger.png" alt="Swagger Screenshot" width="800"/>
 
 ```
 
