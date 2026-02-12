@@ -241,6 +241,9 @@ Swagger UI available at:
 
 ---
 
-# 👨‍💻 Developed By
+## ⚠️ OTP Email Notice
 
-Backend Engineering Assignment Submission
+Due to restrictions on Render free plan, Gmail SMTP connections may fail in production.
+However, OTP functionality works correctly in local development environment.
+All authentication logic is fully implemented and tested locally.
+
