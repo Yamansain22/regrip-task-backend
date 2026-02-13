@@ -1,23 +1,23 @@
 # Task Management API
 
-This project is a backend Task Management API developed as part of the Regrip assignment. It provides OTP-based authentication, JWT authorization, and task management functionality with proper security and documentation.
+This project is a backend Task Management API developed for the Regrip assignment. It implements OTP-based authentication, JWT authorization, and secure task management operations using a structured and modular architecture.
 
-The application is built using Node.js, Express, MySQL, and deployed on Render.
+The application is built using Node.js, Express.js, and MySQL, and is deployed on Render.
 
 ---
 
 ## Project Overview
 
-The API allows users to:
+The system allows users to authenticate using email OTP and manage their personal tasks securely. All task routes are protected using JWT-based authentication.
 
-* Register/Login using email OTP
-* Receive JWT access and refresh tokens
-* Create, update, delete and view tasks
-* Access protected routes securely
-* Prevent abuse using rate limiting
-* Explore API documentation using Swagger UI
+Key capabilities:
 
-The system follows a clean and modular folder structure.
+* Email-based OTP authentication
+* JWT access and refresh token generation
+* Secure CRUD operations for tasks
+* Rate limiting to prevent abuse
+* Structured API documentation using Swagger
+* Environment-based configuration
 
 ---
 
@@ -26,10 +26,10 @@ The system follows a clean and modular folder structure.
 * Node.js
 * Express.js
 * MySQL
-* JWT (Authentication)
-* Nodemailer (OTP email)
+* JSON Web Token (JWT)
+* Nodemailer
 * Express Rate Limit
-* Swagger (API documentation)
+* Swagger (OpenAPI 3.0)
 * Render (Deployment)
 
 ---
@@ -46,38 +46,73 @@ Swagger Documentation:
 
 ## API Endpoints
 
-### Authentication
+### Authentication Routes
 
-POST /api/auth/send-otp
-Send OTP to email
+**POST /api/auth/send-otp**
+Sends an OTP to the provided email address.
 
-POST /api/auth/verify-otp
-Verify OTP and receive JWT tokens
+Request Body:
+{
+"email": "[user@example.com](mailto:user@example.com)"
+}
 
 ---
 
-### Tasks (Protected Routes)
+**POST /api/auth/verify-otp**
+Verifies OTP and returns access and refresh tokens.
 
-Authorization Header Required:
+Request Body:
+{
+"email": "[user@example.com](mailto:user@example.com)",
+"otp": "123456"
+}
+
+---
+
+### Task Routes (Protected)
+
+All task routes require the following header:
 
 Authorization: Bearer <access_token>
 
-POST /api/tasks
-Create a new task
+---
 
-GET /api/tasks
-Get all tasks of logged-in user
+**POST /api/tasks**
+Creates a new task.
 
-PUT /api/tasks/:id
-Update a task
+Request Body:
+{
+"title": "Task title",
+"description": "Task description"
+}
 
-DELETE /api/tasks/:id
-Delete a task
+---
+
+**GET /api/tasks**
+Returns all tasks for the authenticated user.
+
+---
+
+**PUT /api/tasks/:id**
+Updates an existing task.
+
+Request Body:
+{
+"title": "Updated title",
+"description": "Updated description",
+"status": "completed"
+}
+
+---
+
+**DELETE /api/tasks/:id**
+Deletes a task by ID.
 
 ---
 
 ## Folder Structure
 
+```
 regrip-task-backend/
 │
 ├── src/
@@ -91,8 +126,10 @@ regrip-task-backend/
 ├── screenshots/
 ├── .env.example
 ├── package.json
+├── package-lock.json
 ├── server.js
 └── README.md
+```
 
 ---
 
@@ -100,18 +137,15 @@ regrip-task-backend/
 
 ### Swagger Documentation
 
-(Add screenshot here)
-
-Example:
-
 ![Swagger Screenshot](screenshots/swagger.jpg)
 
 ---
 
 ## Environment Variables
 
-Create a .env file using the following structure:
+Create a `.env` file using the following structure:
 
+```
 PORT=
 DB_HOST=
 DB_USER=
@@ -121,40 +155,37 @@ JWT_SECRET=
 JWT_REFRESH_SECRET=
 EMAIL_USER=
 EMAIL_PASS=
+```
 
 ---
 
-## OTP Notice (Production)
+## Production Note
 
-Due to restrictions on Render free plan, external SMTP connections (Gmail) may not function properly in production.
-
-However:
-
-* OTP functionality works correctly in local development.
-* All authentication logic is fully implemented and tested.
-* JWT and task management features work as expected in production.
+On the Render free plan, outbound SMTP connections may fail due to platform restrictions. OTP functionality works correctly in the local development environment. The complete authentication logic and JWT system are fully implemented and tested.
 
 ---
 
-## How to Run Locally
+## Running the Project Locally
 
 1. Clone the repository
-2. Install dependencies using:
+2. Install dependencies
 
+```
 npm install
+```
 
-3. Add environment variables in .env file
-4. Start the server using:
+3. Configure environment variables in `.env`
+4. Start the server
 
+```
 npm run dev
+```
 
 Server runs at:
 [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## Conclusion
+## Summary
 
-This project demonstrates backend development skills including authentication, authorization, database integration, API security, rate limiting, and documentation.
-
-The codebase is modular, structured, and production-ready.
+This project demonstrates backend development concepts including authentication, authorization, database integration, API security, rate limiting, and structured documentation. The codebase follows a modular architecture and environment-based configuration suitable for production-ready applications.
