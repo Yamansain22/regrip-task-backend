@@ -53,7 +53,7 @@ Sends an OTP to the provided email address.
 
 Request Body:
 {
-"email": "[user@example.com](mailto:user@example.com)"
+"email": "[user@example.com](mailto:user@Gmail.com)"
 }
 
 ---
@@ -63,8 +63,8 @@ Verifies OTP and returns access and refresh tokens.
 
 Request Body:
 {
-"email": "[user@example.com](mailto:user@example.com)",
-"otp": "123456"
+"email": "[user@example.com](mailto:user2@gmail.com)",
+"otp": "654321"
 }
 
 ---
@@ -80,7 +80,7 @@ Authorization: Bearer <access_token>
 **POST /api/tasks**
 Creates a new task.
 
-Request Body:
+Request Body (JSON):
 {
 "title": "Task title",
 "description": "Task description"
@@ -98,9 +98,9 @@ Updates an existing task.
 
 Request Body:
 {
-"title": "Updated title",
-"description": "Updated description",
-"status": "completed"
+"title":"Updated title",
+"description":"Updated description",
+"status":"completed"
 }
 
 ---
